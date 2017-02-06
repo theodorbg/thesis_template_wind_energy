@@ -1,0 +1,68 @@
+% !TeX document-id = {f557260d-bfe3-4cd2-ab60-c258fa899bb8}
+%---MAGIC COMMENTS---
+% !TEX program = pdflatex
+	%xelatex; pdflatex
+% !TEX root = Thesis.tex
+% !TeX TXS-program:bibliography = txs:///biber
+	% if this is not working, change directly in Options, Build; use bibtex
+	% bibtex; biber
+% !TeX spellcheck = <none>
+	%blabla !TeX encoding = utf8
+%------------------------------------------------------------------------------------
+\input{preamble/static}
+%---CLASS---
+%\documentclass[12pt,a4paper,twoside,showtrims,extrafontsizes]{memoir}
+\newcommand{\papersizeswitch}[3]{\ifnum\strcmp{\papersize}{#1}=0#2\else#3\fi}
+%\papersizeswitch{b5paper}{\def\classfontsize{10pt}}{\def\classfontsize{12pt}}
+\documentclass[\classfontsize,\papersize,twoside,showtrims,extrafontsizes]{memoir}
+%------------------------------------------------------------------------------------
+%---PREAMBLE---%
+\RequirePackage[l2tabu,orthodox]{nag} % Old habits die hard
+
+\input{preamble/general}
+\input{preamble/fonts}
+\input{preamble/etc}
+\input{preamble/Antoine_packages}
+%------------------------------------------------------------------------------------
+%---BIBLIOGRAPHY---%
+\addbibresource{bibliography/Thesis.bib}
+%\addbibresource{bibliography/Bibliography.bib}
+%------------------------------------------------------------------------------------
+%---DOCUMENT---%
+\begin{document}
+    %-- prefront
+\prefrontmatter
+\include{prefrontmatter/titlepage}
+\cleartoevenpage
+\include{prefrontmatter/colophon}
+\clearforchapter
+    %-- front
+\frontmatter
+\include{frontmatter/Summary}
+\include{frontmatter/Preface}
+\include{frontmatter/Acknowledgements}
+\clearforchapter
+    %-- TOContents
+\tableofcontents
+\clearforchapter
+    % Figures Tables, abbr., 
+\mylistoftodos
+    %-- Chapters
+\mainmatter
+\include{chapters/Ch1_intro}
+\include{chapters/Ch2_XX}
+\include{chapters/Ch3_XX}
+\include{chapters/Ch4_XX}
+\include{chapters/Ch5_XX}
+%\blinddocument
+\include{chapters/Ch6_XX}
+    %-- Appendix
+\appendix
+\include{appendices/AnAppendix}
+    %-- back
+\backmatter
+\printbibliography
+%\section*{References}
+%\bibliographystyle{copernicus} 
+%\bibliography{bibliography/Thesis.bib}
+\end{document}
